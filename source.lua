@@ -2163,7 +2163,7 @@ local OnTeleport; OnTeleport = Player.OnTeleport:Connect(function()
     if DEBUG or not Fluent or not getfenv().queue_on_teleport then
         OnTeleport:Disconnect()
     else
-        getfenv().queue_on_teleport("getfenv().loadstring(game:HttpGet(\"https://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua\", true))()")
+        getfenv().queue_on_teleport("getfenv().loadstring(game:HttpGet(\"https://raw.githubusercontent.com/xeonise/Open-Aimbot/master/source.lua\", true))()")
         OnTeleport:Disconnect()
     end
 end)
