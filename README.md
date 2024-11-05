@@ -47,7 +47,7 @@ Open Aimbot is a **universal** open source framework. It offers a wide selection
 #### Made with love,
 
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xeonise/Open-Aimbot/master/source.lua", true))()
 ```
 
 <p align="center">
