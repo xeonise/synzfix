@@ -1,43 +1,3 @@
---[[⊹˚₊‧───────────────‧₊˚⊹·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⊹˚₊‧───────────────‧₊˚⊹
-
-  ______                                   ______  __              __                  __     
- /      \                                 /      \|  \            |  \                |  \    
-|  ▓▓▓▓▓▓\ ______   ______  _______      |  ▓▓▓▓▓▓\\▓▓______ ____ | ▓▓____   ______  _| ▓▓_   
-| ▓▓  | ▓▓/      \ /      \|       \     | ▓▓__| ▓▓  \      \    \| ▓▓    \ /      \|   ▓▓ \  
-| ▓▓  | ▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\ ▓▓▓▓▓▓▓\    | ▓▓    ▓▓ ▓▓ ▓▓▓▓▓▓\▓▓▓▓\ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\\▓▓▓▓▓▓  
-| ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓    ▓▓ ▓▓  | ▓▓    | ▓▓▓▓▓▓▓▓ ▓▓ ▓▓ | ▓▓ | ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ | ▓▓ __ 
-| ▓▓__/ ▓▓ ▓▓__/ ▓▓ ▓▓▓▓▓▓▓▓ ▓▓  | ▓▓    | ▓▓  | ▓▓ ▓▓ ▓▓ | ▓▓ | ▓▓ ▓▓__/ ▓▓ ▓▓__/ ▓▓ | ▓▓|  \
- \▓▓    ▓▓ ▓▓    ▓▓\▓▓     \ ▓▓  | ▓▓    | ▓▓  | ▓▓ ▓▓ ▓▓ | ▓▓ | ▓▓ ▓▓    ▓▓\▓▓    ▓▓  \▓▓  ▓▓
-  \▓▓▓▓▓▓| ▓▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓   \▓▓     \▓▓   \▓▓\▓▓\▓▓  \▓▓  \▓▓\▓▓▓▓▓▓▓  \▓▓▓▓▓▓    \▓▓▓▓ 
-         | ▓▓                                                                                 
-         | ▓▓                                                                                 
-          \▓▓                                                                                 
-
-༺☆༻____________☾✧ ✩ ✧☽____________༺☆༻༺☆༻____________☾✧ ✩ ✧☽____________༺☆༻
-
-    ✨Universal Aim Assist Framework✨
-    Release 1.9.3
-
-    twix.cyou/pix
-    twix.cyou/OpenAimbotV3rm
-
-    Author: ttwiz_z (ttwizz) <i@twix.cyou>
-    License: MIT
-    GitHub: https://github.com/ttwizz/Open-Aimbot
-
-    Issues: https://github.com/ttwizz/Open-Aimbot/issues
-    Pull requests: https://github.com/ttwizz/Open-Aimbot/pulls
-    Discussions: https://github.com/ttwizz/Open-Aimbot/discussions
-
-    Wiki: https://moderka.org/Open-Aimbot
-
-    Trustpilot: https://www.trustpilot.com/review/moderka.org
-
-•───────•°•❀•°•───────•୧‿̩͙ ˖︵ꕀ ⠀𓏶 ̣̣̥⠀ ꕀ︵˖ ̩͙‿୨•───────•°•❀•°•───────•]]
-
-
---! Debugger
-
 local DEBUG = false
 
 if DEBUG then
@@ -282,13 +242,10 @@ do
         Fluent = require(script:FindFirstChild("Fluent"))
     else
         local Success, Result = pcall(function()
-            return game:HttpGet("https://twix.cyou/Fluent.txt", true)
+            return game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua", true)
         end)
         if Success and typeof(Result) == "string" and string.find(Result, "dawid") then
             Fluent = getfenv().loadstring(Result)()
-            if Fluent.Premium then
-                return getfenv().loadstring(game:HttpGet("https://twix.cyou/Aimbot.txt", true))()
-            end
         else
             return
         end
@@ -298,10 +255,10 @@ end
 local SensitivityChanged; SensitivityChanged = UserInputService:GetPropertyChangedSignal("MouseDeltaSensitivity"):Connect(function()
     if not Fluent then
         SensitivityChanged:Disconnect()
-    elseif not Aiming or not DEBUG and (getfenv().mousemoverel and IsComputer and Configuration.AimMode == "Mouse" or getfenv().hookmetamethod and getfenv().newcclosure and getfenv().checkcaller and getfenv().getnamecallmethod and Configuration.AimMode == "Silent") then
-        if identifyexecutor() and not string.find(identifyexecutor(), "Synapse") then
+    elseif not Aiming or not DEBUG and (getfenv().mousemoverel and IsComputer and Configuration.AimMode == "Mouse" or hookmetamethod and getfenv().newcclosure and getfenv().checkcaller and getfenv().getnamecallmethod and Configuration.AimMode == "Silent") then
+        
             MouseSensitivity = UserInputService.MouseDeltaSensitivity
-        end        
+        
     end
 end)
 
@@ -310,7 +267,7 @@ end)
 
 do
     local Window = Fluent:CreateWindow({
-        Title = string.format("%s <b><i>🔥FREE🔥</i></b>", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+        Title = string.format(string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
         SubTitle = "By @ttwiz_z",
         TabWidth = UISettings.TabWidth,
         Size = UDim2.fromOffset(table.unpack(UISettings.Size)),
@@ -323,10 +280,6 @@ do
 
     Window:SelectTab(1)
 
-    Tabs.Aimbot:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
-    })
 
     local AimbotSection = Tabs.Aimbot:AddSection("Aimbot")
 
@@ -367,40 +320,6 @@ do
     if getfenv().mousemoverel and IsComputer then
         table.insert(AimModeDropdown.Values, "Mouse")
         AimModeDropdown:BuildDropdownList()
-    else
-        ShowWarning = true
-    end
-    if getfenv().hookmetamethod and not string.find(identifyexecutor(), "Synapse") and getfenv().newcclosure and getfenv().checkcaller and getfenv().getnamecallmethod then
-        table.insert(AimModeDropdown.Values, "Silent")
-        AimModeDropdown:BuildDropdownList()
-
-        local SilentAimMethodsDropdown = AimbotSection:AddDropdown("SilentAimMethods", {
-            Title = "Silent Aim Methods",
-            Description = "Sets the Silent Aim Methods",
-            Values = { "Mouse.Hit / Mouse.Target", "GetMouseLocation", "Raycast", "FindPartOnRay", "FindPartOnRayWithIgnoreList", "FindPartOnRayWithWhitelist" },
-            Multi = true,
-            Default = Configuration.SilentAimMethods
-        })
-        SilentAimMethodsDropdown:OnChanged(function(Value)
-            Configuration.SilentAimMethods = {}
-            for Key, _ in next, Value do
-                if typeof(Key) == "string" then
-                    table.insert(Configuration.SilentAimMethods, Key)
-                end
-            end
-        end)
-
-        AimbotSection:AddSlider("SilentAimChance", {
-            Title = "Silent Aim Chance",
-            Description = "Changes the Hit Chance for Silent Aim",
-            Default = Configuration.SilentAimChance,
-            Min = 1,
-            Max = 100,
-            Rounding = 1,
-            Callback = function(Value)
-                Configuration.SilentAimChance = Value
-            end
-        })
     else
         ShowWarning = true
     end
@@ -570,11 +489,6 @@ do
 
     Tabs.Bots = Window:AddTab({ Title = "Bots", Icon = "bot" })
 
-    Tabs.Bots:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
-    })
-
     local SpinBotSection = Tabs.Bots:AddSection("SpinBot")
 
     SpinBotSection:AddParagraph({
@@ -727,11 +641,6 @@ do
     end
 
     Tabs.Checks = Window:AddTab({ Title = "Checks", Icon = "list-checks" })
-
-    Tabs.Checks:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
-    })
 
     local SimpleChecksSection = Tabs.Checks:AddSection("Simple Checks")
 
@@ -1070,25 +979,9 @@ do
         end
     })
 
-    local PremiumChecksSection = Tabs.Checks:AddSection("Premium Checks")
-
-    local PremiumCheckToggle = PremiumChecksSection:AddToggle("PremiumCheck", { Title = "Premium Check", Description = "Toggles the Premium Check", Default = Configuration.PremiumCheck })
-    PremiumCheckToggle:OnChanged(function(Value)
-        Configuration.PremiumCheck = Value
-    end)
-
-    PremiumChecksSection:AddParagraph({
-        Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Upgrade to unlock all Options✨\nContact @ttwiz_z via Discord to buy"
-    })
-
     if getfenv().Drawing then
         Tabs.Visuals = Window:AddTab({ Title = "Visuals", Icon = "box" })
 
-        Tabs.Visuals:AddParagraph({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-            Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
-        })
 
         local FoVSection = Tabs.Visuals:AddSection("FoV")
 
@@ -1288,11 +1181,6 @@ do
     end
 
     Tabs.Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
-
-    Tabs.Settings:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
-    })
 
     local UISection = Tabs.Settings:AddSection("UI")
 
@@ -1638,17 +1526,7 @@ do
         elseif ShowWarning then
             Window:Dialog({
                 Title = "Warning",
-                Content = string.format("Your Software does not support all the Features of %s 🔥FREE🔥!", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-                Buttons = {
-                    {
-                        Title = "Confirm"
-                    }
-                }
-            })
-        else
-            Window:Dialog({
-                Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-                Content = "✨Upgrade to unlock all Options✨ – Contact @ttwiz_z via Discord to buy",
+                Content = string.format("Your Software does not support all the Features of", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
                 Buttons = {
                     {
                         Title = "Confirm"
@@ -1665,16 +1543,13 @@ end
 local function Notify(Message)
     if Fluent and typeof(Message) == "string" then
         Fluent:Notify({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+            Title = string.format(string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
             Content = Message,
             SubContent = "By @ttwiz_z",
             Duration = 1.5
         })
     end
 end
-
-Notify("✨Upgrade to unlock all Options✨")
-
 
 --! Fields Handler
 
@@ -1895,55 +1770,6 @@ local function ValidateArguments(Arguments, Method)
     return Matches >= Method.Required
 end
 
-
---! Silent Aim Handler
-
-do
-    if not DEBUG and not string.find(identifyexecutor(), "Synapse") and getfenv().hookmetamethod and getfenv().newcclosure and getfenv().checkcaller and getfenv().getnamecallmethod then
-        local OldIndex; OldIndex = getfenv().hookmetamethod(game, "__index", getfenv().newcclosure(function(self, Index)
-            if Fluent and not getfenv().checkcaller() and Configuration.AimMode == "Silent" and table.find(Configuration.SilentAimMethods, "Mouse.Hit / Mouse.Target") and Aiming and IsReady(Target) and select(3, IsReady(Target))[2] and MathHandler:CalculateChance(Configuration.SilentAimChance) and self == Mouse then
-                FieldsHandler:ResetAimbotFields(true, true)
-                if Index == "Hit" or Index == "hit" then
-                    return select(6, IsReady(Target))
-                elseif Index == "Target" or Index == "target" then
-                    return select(7, IsReady(Target))
-                elseif Index == "X" or Index == "x" then
-                    return select(3, IsReady(Target))[1].X
-                elseif Index == "Y" or Index == "y" then
-                    return select(3, IsReady(Target))[1].Y
-                elseif Index == "UnitRay" or Index == "unitRay" then
-                    return Ray.new(self.Origin, (select(6, IsReady(Target)) - self.Origin).Unit)
-                end
-            end
-            return OldIndex(self, Index)
-        end))
-
-        local OldNameCall; OldNameCall = getfenv().hookmetamethod(game, "__namecall", getfenv().newcclosure(function(...)
-            local Method = getfenv().getnamecallmethod()
-            local Arguments = { ... }
-            local self = Arguments[1]
-            if Fluent and not getfenv().checkcaller() and Configuration.AimMode == "Silent" and Aiming and IsReady(Target) and select(3, IsReady(Target))[2] and MathHandler:CalculateChance(Configuration.SilentAimChance) then
-                FieldsHandler:ResetAimbotFields(true, true)
-                if table.find(Configuration.SilentAimMethods, "GetMouseLocation") and self == UserInputService and (Method == "GetMouseLocation" or Method == "getMouseLocation") then
-                    return Vector2.new(select(3, IsReady(Target))[1].X, select(3, IsReady(Target))[1].Y)
-                elseif table.find(Configuration.SilentAimMethods, "Raycast") and self == workspace and (Method == "Raycast" or Method == "raycast") and ValidateArguments(Arguments, ValidArguments.Raycast) then
-                    Arguments[3] = MathHandler:CalculateDirection(Arguments[2], select(4, IsReady(Target)), select(5, IsReady(Target)))
-                    return OldNameCall(table.unpack(Arguments))
-                elseif table.find(Configuration.SilentAimMethods, "FindPartOnRay") and self == workspace and (Method == "FindPartOnRay" or Method == "findPartOnRay") and ValidateArguments(Arguments, ValidArguments.FindPartOnRay) then
-                    Arguments[2] = Ray.new(Arguments[2].Origin, MathHandler:CalculateDirection(Arguments[2].Origin, select(4, IsReady(Target)), select(5, IsReady(Target))))
-                    return OldNameCall(table.unpack(Arguments))
-                elseif table.find(Configuration.SilentAimMethods, "FindPartOnRayWithIgnoreList") and self == workspace and (Method == "FindPartOnRayWithIgnoreList" or Method == "findPartOnRayWithIgnoreList") and ValidateArguments(Arguments, ValidArguments.FindPartOnRayWithIgnoreList) then
-                    Arguments[2] = Ray.new(Arguments[2].Origin, MathHandler:CalculateDirection(Arguments[2].Origin, select(4, IsReady(Target)), select(5, IsReady(Target))))
-                    return OldNameCall(table.unpack(Arguments))
-                elseif table.find(Configuration.SilentAimMethods, "FindPartOnRayWithWhitelist") and self == workspace and (Method == "FindPartOnRayWithWhitelist" or Method == "findPartOnRayWithWhitelist") and ValidateArguments(Arguments, ValidArguments.FindPartOnRayWithWhitelist) then
-                    Arguments[2] = Ray.new(Arguments[2].Origin, MathHandler:CalculateDirection(Arguments[2].Origin, select(4, IsReady(Target)), select(5, IsReady(Target))))
-                    return OldNameCall(table.unpack(Arguments))
-                end
-            end
-            return OldNameCall(...)
-        end))
-    end
-end
 
 
 --! Bots Handler
